@@ -1,6 +1,7 @@
 import SkipPreviousIcon from "@material-ui/icons/SkipPrevious";
 import PlayCircleFilledIcon from "@material-ui/icons/PlayCircleFilled";
 import SkipNextIcon from "@material-ui/icons/SkipNext";
+import { IconButton } from "@material-ui/core";
 
 const Player = () => {
     return (
@@ -11,9 +12,9 @@ const Player = () => {
                 <p>End Time</p>
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
-                <SkipPreviousIcon />
-                <PlayCircleFilledIcon />
-                <SkipNextIcon />
+                <IconButton><SkipPreviousIcon /></IconButton>
+                <IconButton><PlayCircleFilledIcon /></IconButton>
+                <IconButton><SkipNextIcon /></IconButton>
             </div>
         </div>
     );

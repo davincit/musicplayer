@@ -1,10 +1,11 @@
-import { Typography } from "@material-ui/core";
-const Song = () => {
+import { Avatar, Typography } from "@material-ui/core";
+const Song = ({ currentsong }) => {
     return (
         <div >
-            <Typography variant="h3" align="center">Picture</Typography>
-            <Typography variant="h3" align="center">Song Name</Typography>
-            <Typography variant="h5" align="center">Artist</Typography>
+            <img src={currentsong.cover} style={{ display: "flex", justifyContent: "center", margin: "auto" }}></img>
+            {/* <Typography variant="h3" align="center">Picture</Typography> */}
+            <Typography variant="h3" align="center">{currentsong.name}</Typography>
+            <Typography variant="h5" align="center">{currentsong.artist}</Typography>
         </div>
     );
 };
