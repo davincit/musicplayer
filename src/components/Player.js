@@ -5,21 +5,18 @@ import { duration, IconButton } from "@material-ui/core";
 import PauseIcon from '@material-ui/icons/Pause';
 import { useRef, useState } from "react";
 
-const Player = ({ currentsong, playing, setPlaying }) => {
+const Player = ({ currentsong, playing, onchange }) => {
 
     const audioRef = useRef(null)
-    const [playPause, setPlayPause] = useState(false)
     const playSong = () => {
         //console.log(2000, audioRef)
         if (playing) {
             audioRef.current.pause();
-            setPlaying(!playing);
-            setPlayPause(!playPause)
+            onchange();
         }
         else {
             audioRef.current.play();
-            setPlaying(!playing);
-            setPlayPause(!playPause)
+            onchange();
         }
     }
 
@@ -37,9 +34,9 @@ const Player = ({ currentsong, playing, setPlaying }) => {
     }
 
 
-    const dragHandler = (e) =>{
-        audioRef.current.currentTime=e.target.value;
-        setSongtime({...songTime,currentTime:e.target.value})
+    const dragHandler = (e) => {
+        audioRef.current.currentTime = e.target.value;
+        setSongtime({ ...songTime, currentTime: e.target.value })
     }
 
 
@@ -47,14 +44,14 @@ const Player = ({ currentsong, playing, setPlaying }) => {
         <div >
             <div style={{ display: "flex", justifyContent: "center" }}>
                 <p>{timeFormat(songTime.currentTime)}</p>
-                <input type="range" onChange={dragHandler} value={songTime.currentTime} min={0} max={songTime.duration} style={{width: "25em"}}/>
-                
+                <input type="range" onChange={dragHandler} value={songTime.currentTime} min={0} max={songTime.duration} style={{ width: "25em" }} />
+
                 <p>{timeFormat(songTime.duration)}</p>
             </div>
-            <div style={{ display: "flex", justifyContent: "center", background: "#4a919e" }}>
-                <IconButton><SkipPreviousIcon style={{ fontSize: "2em" }} /></IconButton>
-                <IconButton onClick={playSong} >{!playPause ? <PlayCircleFilledIcon style={{ fontSize: "2em" }} /> : <PauseIcon style={{ fontSize: "2em" }} />}</IconButton>
-                <IconButton><SkipNextIcon style={{ fontSize: "2em" }} /></IconButton>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+                <IconButton><SkipPreviousIcon style={{ fontSize: "2em", color: "#1A535c" }} /></IconButton>
+                <IconButton onClick={playSong} >{!playing ? <PlayCircleFilledIcon style={{ fontSize: "2em", color: "#1A535c" }} /> : <PauseIcon style={{ fontSize: "2em" }} />}</IconButton>
+                <IconButton><SkipNextIcon style={{ fontSize: "2em", color: "#1A535c" }} /></IconButton>
             </div>
             <audio onLoadedMetadata={timeUpdateHandler} onTimeUpdate={timeUpdateHandler} src={currentsong.audio} ref={audioRef}></audio>
         </div>

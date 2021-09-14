@@ -13,6 +13,24 @@ export default function musicData() {
                 id: uuidv4(),
                 active: true
             },
+            {
+                name: "Ending",
+                cover: "https://dlmusics.ir/wp-content/uploads/2019/05/Isak-Danielson.jpg",
+                artist: "Isak Danielson",
+                audio: "https://englishtipsforyou.com/wp-content/uploads/2019/04/Isak-Danielson-Ending.mp3",
+                color: ['FFE562', '4AA5B0'],
+                id: uuidv4(),
+                active: true
+            },
+            {
+                name: "Ending",
+                cover: "https://www.covercentury.com/covers/audio/l/LP-07LostOnYouDeluxePoland.jpg",
+                artist: "Isak Danielson",
+                audio: "https://englishtipsforyou.com/wp-content/uploads/2019/05/LP-Lost-On-You-.www_.englishtipsforyou.com_.mp3",
+                color: ['FFE562', '4AA5B0'],
+                id: uuidv4(),
+                active: true
+            },
         ]
     )
 }
