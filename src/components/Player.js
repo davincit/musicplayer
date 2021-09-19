@@ -5,18 +5,18 @@ import { duration, IconButton } from "@material-ui/core";
 import PauseIcon from '@material-ui/icons/Pause';
 import { useRef, useState } from "react";
 
-const Player = ({ currentsong, playing, onchange }) => {
+const Player = ({ currentsong, playing, onChange }) => {
 
     const audioRef = useRef(null)
+
     const playSong = () => {
-        //console.log(2000, audioRef)
         if (playing) {
             audioRef.current.pause();
-            onchange();
+            onChange();
         }
         else {
             audioRef.current.play();
-            onchange();
+            onChange();
         }
     }
 
